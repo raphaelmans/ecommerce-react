@@ -9,7 +9,10 @@ const Product = require("./models/products"),
 const PORT = process.env.PORT || 8000;
 app.use(cors());
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/ecommerce", {
+
+const mongoAtlasURL = "mongodb+srv://belzbuu:<password>@mernstack-xitaw.mongodb.net/<dbname>?retryWrites=true&w=majority"
+
+mongoose.connect(mongoAtlasURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
