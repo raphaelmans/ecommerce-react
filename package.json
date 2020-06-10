@@ -10,11 +10,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "mocha",
-    "start": "cd server && node app.js",
     "client": "cd client && npm start",
     "heroku-postbuild": "cd client && npm run build",
     "server": "cd server && nodemon app.js",
-    "dev": "concurrently -n 'server,client' -c 'red,green'  \"npm run server\" \"npm run client\""
+    "start": "concurrently -n 'server,client' -c 'red,green'  \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "ecommerce",
