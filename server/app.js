@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 var mongoose = require("mongoose");
 
-const mongoAtlasURL = "mongodb+srv://belzbuu:<password>@mernstack-xitaw.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const mongoAtlasURL = "mongodb+srv://belzbuu:ko0pffughyu7@mernstack-xitaw.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
 mongoose.connect(mongoAtlasURL, {
   useNewUrlParser: true,
