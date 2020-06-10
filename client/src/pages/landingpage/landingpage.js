@@ -6,6 +6,7 @@ import Header from "./Header";
 import MainFeaturedPost from "./MainFeaturedPost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sepg from "../../components/SellOutPage";
+
 import ShowItem from "../product_details/ShowItem";
 import CreateItem from "../PostItem/CreateItem";
 const useStyles = makeStyles((theme) => ({

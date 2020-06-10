@@ -15,7 +15,8 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "cd server && node app.js",
     "client": "cd client && npm start",
-    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
+    "server": "cd server && nodemon app.js",
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "ecommerce",
