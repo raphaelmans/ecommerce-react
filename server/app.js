@@ -25,7 +25,7 @@ app.use(express.json());
 Category.create({category:"cables&adapters"});
 
 
-app.use(express.static("../client/public"));
+app.use(express.static(path_join(__dirname,"../client/public")));
 
 
 app.get("/api/:category/", (req, res) => {
