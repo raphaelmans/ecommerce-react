@@ -28,6 +28,9 @@ Category.create({category:"cables&adapters"});
 
 app.use(express.static(path.join(__dirname,"../client/build")));
 
+app.use('*', function(req, res) {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 app.get("/api/:category/", (req, res) => {
   Category.findOne({ category: req.params.category })
