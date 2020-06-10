@@ -1,59 +1,54 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
-import SendIcon from "@material-ui/icons/Send";
-import {BrowserRouter as Router, Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
     cursor: "pointer",
-    color: "black"
-  }
+    color: "black",
+  },
 });
 
 const StyledMenu = withStyles({
   paper: {
-    border: "1px solid #d3d4d5"
-  }
-})(props => (
+    border: "1px solid #d3d4d5",
+  },
+})((props) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
       vertical: "bottom",
-      horizontal: "center"
+      horizontal: "center",
     }}
     transformOrigin={{
       vertical: "top",
-      horizontal: "center"
+      horizontal: "center",
     }}
     {...props}
   />
 ));
 
-const StyledMenuItem = withStyles(theme => ({
+const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
       backgroundColor: "#f0f0f0",
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: "black"
-      }
-    }
-  }
+        color: "black",
+      },
+    },
+  },
 }))(MenuItem);
 
 export default function CustomizedMenus(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (props.listitem.length > 1) {
       setAnchorEl(event.currentTarget);
     } else {
@@ -63,11 +58,9 @@ export default function CustomizedMenus(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const titleparams = props.title.replace(/\W/g, '').toLowerCase();
+  const titleparams = props.title.replace(/\W/g, "").toLowerCase();
   return (
- 
     <div>
-          
       <Link
         aria-controls="customized-menu"
         aria-haspopup="true"
@@ -87,28 +80,26 @@ export default function CustomizedMenus(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      
         {props.listitem.length > 1
-          ? props.listitem.map(item => {
-            const urlparams = item.replace(/\s+/g, '').toLowerCase();
-            
+          ? props.listitem.map((item) => {
+              const urlparams = item.replace(/\s+/g, "").toLowerCase();
+
               return (
-                <StyledMenuItem>
+                <Link
+                  onClick={handleClose}
+                  to={`/${titleparams}/${urlparams}`}
+                  className={classes.root}
+                  color="initial"
                   
-                  <Link
-                    to={`/${titleparams}/${urlparams}`}
-                    className={classes.root}
-                    color="initial"
-                  >
+                >
+                  <StyledMenuItem>
                     <ListItemText primary={item} />
-                  </Link>
-               
-                </StyledMenuItem>
+                  </StyledMenuItem>
+                </Link>
               );
             })
           : null}
-         
       </StyledMenu>
     </div>
- );
+  );
 }

@@ -1,12 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import LandingPage from "./components/landingpage";
+import React from "react";
+import "./App.css";
+import LandingPage from "./pages/landingpage/landingpage";
+import { GlobalProvider } from "./context/Globalstate";
 
 function App() {
   return (
     <div className="App">
-       <LandingPage />
+      <GlobalProvider>
+        <LandingPage />
+      </GlobalProvider>
     </div>
   );
 }

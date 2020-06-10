@@ -9,27 +9,33 @@ import Typography from "@material-ui/core/Typography";
 import { TextField } from "@material-ui/core";
 import MenuButton from "./MenuButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {
-  useTheme
-} from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import DrawerSection from "./DrawerSection";
-import {Link} from 'react-router-dom'
-
-const useStyles = makeStyles(theme => ({
+import { Link } from "react-router-dom";
+import ShoppingCart from '../../components/ShoppingCart'
+const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarTitle: {
-    flex: 1
+    flex: 1,
   },
   toolbarSecondary: {
     justifyContent: "space-between",
-    overflowX: "auto"
+    overflowX: "auto",
   },
   toolbarLink: {
     padding: theme.spacing(1),
-    flexShrink: 0
-  }
+    flexShrink: 0,
+  },
+
+  siteTitle: {
+    color: "black",
+    textDecoration: "none",
+    "&:hover": {
+      border: "1px solid gray",
+    },
+  },
 }));
 
 function Header(props) {
@@ -48,7 +54,7 @@ function Header(props) {
           noWrap
           className={classes.toolbarTitle}
         >
-          <Link to="/" style={{color:"black",textDecoration:"none"}}>
+          <Link to="/" className={classes.siteTitle}>
             {title}
           </Link>
         </Typography>
@@ -68,15 +74,18 @@ function Header(props) {
           Sign up
         </Button>
       </Toolbar>
+
       {matches ? (
         <Toolbar
           component="nav"
           variant="dense"
           className={classes.toolbarSecondary}
         >
-          {sections.map(section => (
+          {sections.map((section) => (
             <MenuButton title={section.title} listitem={section.sublinks} />
           ))}
+          {/* TODO: ADD CART COMPONENT WITH HOVER ITEMS */}
+            <ShoppingCart/>
         </Toolbar>
       ) : (
         <DrawerSection />
@@ -87,8 +96,7 @@ function Header(props) {
 
 Header.propTypes = {
   sections: PropTypes.array,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
-
 
 export default Header;

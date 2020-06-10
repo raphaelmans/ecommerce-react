@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  height: 100%;
+  width: 100%;
+}
+
+span{
+  color:"pink"
+}
+
+.shit{
+  color:"red"
 }
