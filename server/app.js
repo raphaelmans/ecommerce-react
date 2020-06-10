@@ -25,6 +25,8 @@ app.use(express.json());
 Category.create({category:"cables&adapters"});
 
 
+app.use(express.static("../client/public"));
+
 
 app.get("/api/:category/", (req, res) => {
   Category.findOne({ category: req.params.category })
