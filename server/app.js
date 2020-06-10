@@ -1,6 +1,7 @@
 const express = require("express"),
   morgan = require("morgan"),
   app = express(),
+  path = require("path"),
   cors = require('cors');
 
 const Product = require("./models/products"),
@@ -25,7 +26,7 @@ app.use(express.json());
 Category.create({category:"cables&adapters"});
 
 
-app.use(express.static(path_join(__dirname,"../client/public")));
+app.use(express.static(path.join(__dirname,"../client/public")));
 
 
 app.get("/api/:category/", (req, res) => {
