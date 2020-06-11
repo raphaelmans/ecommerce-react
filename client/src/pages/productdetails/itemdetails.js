@@ -4,7 +4,7 @@ import Rating from "@material-ui/lab/Rating";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import { Box } from "@material-ui/core";
-import ActionElements from "./actionelements"
+import ActionElements from "./actionquery"
 const useStyles = makeStyles({
   priceColor: {
     color: "#888",

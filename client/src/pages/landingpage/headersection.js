@@ -7,10 +7,10 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import { TextField } from "@material-ui/core";
-import MenuButton from "./menubutton";
+import MenuButton from "./sectionbutton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
-import DrawerSection from "./drawersection";
+import DrawerSection from "./menudrawer";
 import { Link } from "react-router-dom";
 import ShoppingCart from '../../components/shoppingcart'
 const useStyles = makeStyles((theme) => ({

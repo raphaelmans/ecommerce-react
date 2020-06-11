@@ -6,8 +6,8 @@ import Header from "./headersection"
 import MainFeaturedPost from "./featuredpost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sepg from "../../components/selloutpage";
-import ShowItem from "../product_details/showitem";
-import CreateItem from "../postitem/createitem";
+import ShowItem from "../productdetails/showproductitem";
+import CreateItem from "../newitem/createnewitem";
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
