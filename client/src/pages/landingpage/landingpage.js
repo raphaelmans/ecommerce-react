@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Header from "./headersection"
-import MainFeaturedPost from "./mainfeaturedpost";
+import MainFeaturedPost from "./featuredpost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sepg from "../../components/selloutpage";
 import ShowItem from "../product_details/showitem";
