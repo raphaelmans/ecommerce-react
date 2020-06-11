@@ -12,7 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import DrawerSection from "./menudrawer";
 import { Link } from "react-router-dom";
-import ShoppingCart from '../../components/shoppingcart'
+import ShoppingCart from '../../components/cartcomponent'
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
