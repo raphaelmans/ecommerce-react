@@ -5,7 +5,7 @@ import Popover from "@material-ui/core/Popover";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Box } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
-import ItemsOnCart from "./itemsoncart"
+import ItemsOnCart from "./cartitems"
 import Button from "@material-ui/core/Button";
 import {GlobalContext} from "../context/globalstates";
 
