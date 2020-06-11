@@ -23,7 +23,6 @@ app.use(express.json());
 
 
 
-Category.create({category:"cables&adapters"});
 
 
 app.use(express.static(path.join(__dirname,"../client/build")));
