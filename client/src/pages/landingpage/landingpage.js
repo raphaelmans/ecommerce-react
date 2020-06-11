@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import Header from "./header"
+import Header from "./headersection"
 import MainFeaturedPost from "./mainfeaturedpost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sepg from "../../components/selloutpage";
