@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
-import NavigationSeparator from "./Breadcrumb_navigation";
+import NavigationSeparator from "./breadcrumb";
 import { Grid } from "@material-ui/core";
-import ProductCard from "./Product";
+import ProductCard from "./product";
 import {Box} from "@material-ui/core"
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles'

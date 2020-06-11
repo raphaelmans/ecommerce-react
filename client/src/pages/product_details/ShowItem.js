@@ -1,8 +1,8 @@
 import React, {useEffect,useState}  from "react";
 import { Grid, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import NavigationSeparator from "../../components/Breadcrumb_navigation";
-import ProductDetails from "./ProductDetails";
+import NavigationSeparator from "../../components/breadcrumb";
+import ProductDetails from "./productdetails";
 import axios from 'axios'
 const styles = makeStyles({
   root: {

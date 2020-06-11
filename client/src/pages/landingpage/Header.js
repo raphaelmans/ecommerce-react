@@ -7,12 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import { TextField } from "@material-ui/core";
-import MenuButton from "./MenuButton";
+import MenuButton from "./menubutton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
-import DrawerSection from "./DrawerSection";
+import DrawerSection from "./drawersection";
 import { Link } from "react-router-dom";
-import ShoppingCart from '../../components/ShoppingCart'
+import ShoppingCart from '../../components/shoppingcart'
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,

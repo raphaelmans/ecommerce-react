@@ -2,13 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import Header from "./Header";
-import MainFeaturedPost from "./MainFeaturedPost";
+import Header from "./header";
+import MainFeaturedPost from "./mainfeaturedpost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Sepg from "../../components/Selloutpage";
+import Sepg from "../../components/selloutpage";
 
-import ShowItem from "../product_details/ShowItem";
-import CreateItem from "../PostItem/CreateItem";
+import ShowItem from "../product_details/showitem";
+import CreateItem from "../postitem/CreateItem";
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
