@@ -12,7 +12,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { GlobalContext } from "../../context/globalstate";
+import { GlobalContext } from "../../context/globalstates";
 import CheckIcon from "@material-ui/icons/Check";
 const buttonStyle = makeStyles({
   root: {
