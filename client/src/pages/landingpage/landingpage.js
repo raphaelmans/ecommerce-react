@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import Header from "./Header";
 import MainFeaturedPost from "./MainFeaturedPost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Sepg from "../../components/SellOutpage";
+import Sepg from "../../components/Selloutpage";
 
 import ShowItem from "../product_details/ShowItem";
 import CreateItem from "../PostItem/CreateItem";
