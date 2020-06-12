@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 var mongoose = require("mongoose");
 
-const mongoAtlasURL = "mongodb+srv://belzbuu:ko0pffughyu7@mernstack-xitaw.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const mongoAtlasURL = "mongodb+srv://belzbuu:ko0pffughyu7@mernstack-xitaw.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
 mongoose.connect(mongoAtlasURL, {
   useNewUrlParser: true,
@@ -22,14 +22,14 @@ app.use(morgan("tiny"));
 app.use(express.json());
 
 
+// Category.create({category:"chargers"});
+
 
 
 
 app.use(express.static(path.join(__dirname,"../client/build")));
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-});
+
 
 app.get("/api/:category/", (req, res) => {
   Category.findOne({ category: req.params.category })
@@ -79,6 +79,11 @@ app.post("/api/newitem", (req, res) => {
 
 app.get("/api/:category/:id",(req,res)=>{
     Product.findById(req.params.id).then(product=>res.send(product)).catch(err=>console.log(err));
+});
+
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {

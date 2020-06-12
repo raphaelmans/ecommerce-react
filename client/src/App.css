@@ -11,6 +11,14 @@
   }
 }
 
+span{
+  background-color: "red";
+  color: "red";
+}
+
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -40,10 +48,3 @@ body{
   width: 100%;
 }
 
-span{
-  color:"pink"
-}
-
-.shit{
-  color:"red"
-}

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sepg from "../../components/selloutpage";
 import ShowItem from "../productdetails/showproductitem";
 import CreateItem from "../newitem/createnewitem";
+import CartPage from "../cartpage/cartpage"
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -67,6 +68,7 @@ export default function Blog() {
               <Route path="/:category/:subcategory" exact component={Sepg} />
               <Route path="/:category/:subcategory/:id" component={ShowItem} />
               <Route path="/newitem" exact component={CreateItem} />
+              <Route path="/viewcart" exact component={CartPage}/>
             </Switch>
           </main>
         </Container>

@@ -14,6 +14,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { GlobalContext } from "../../context/globalstates";
 import CheckIcon from "@material-ui/icons/Check";
+import ButtonQty from "../../components/buttonqty"
 const buttonStyle = makeStyles({
   root: {
     padding: 0,
@@ -32,7 +33,7 @@ const buttonStyle = makeStyles({
     },
   },
 });
-function ActionElements({productDetails}) {
+function ActionElements({ productDetails }) {
   const classes = buttonStyle();
   const [count, setCount] = useState(1);
   const [favorite, addFavorite] = useState(false);
@@ -40,16 +41,22 @@ function ActionElements({productDetails}) {
   const [itemOnCart, itemAdded] = useState(0);
   const color = itemOnCart ? "primary" : "";
   const wishlistColor = "";
+
+  const increaseQty = () => {
+    setCount(count + 1);
+  };
+  const decreaseQty = () => {
+    if (count > 1) setCount(count - 1);
+  };
+
   const ToggleCartEvent = () => {
     const addItem = {
       id: productDetails._id,
       itemName: productDetails.itemName,
       itemQty: count,
       itemPrice: productDetails.itemPrice,
-      itemImage:productDetails.itemImage
+      itemImage: productDetails.itemImage,
     };
-
- 
 
     if (itemOnCart) {
       removeFromCart(addItem.id);
@@ -66,33 +73,13 @@ function ActionElements({productDetails}) {
   return (
     <React.Fragment>
       <div style={{ display: "flex" }}>
-        <input
-          type="text"
-          style={{ width: 100, padding: "0 1em" }}
-          value={count}
-        />
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="vertical primary button group"
-          className={classes.root}
-        >
-          <Button
-            size="small"
-            className={classes.root}
-            onClick={() => setCount(count + 1)}
-          >
-            <ExpandLessIcon />
-          </Button>
-          <Button
-            size="small"
-            className={classes.root}
-            onClick={() => {
-              if (count > 1) setCount(count - 1);
-            }}
-          >
-            <ExpandMoreIcon />
-          </Button>
-        </ButtonGroup>
+          <input
+            type="text"
+            style={{ width: 100, padding: "0 2em" }}
+            value={count}
+          />
+        <ButtonQty increaseQty={increaseQty}  decreaseQty={decreaseQty}/>
+      
         <Button
           variant="contained"
           className={classes.cartButton}

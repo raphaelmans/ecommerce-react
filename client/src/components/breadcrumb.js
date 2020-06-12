@@ -4,8 +4,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { NavLink} from "react-router-dom";
-import {Link} from "@material-ui/core"
-import "../App.css"
+import styles from "../sample.module.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +25,7 @@ export default function CustomSeparator(props) {
   const classes = useStyles();
 
   return (
+
     <div className={classes.breadCrumb}>
       <Breadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
@@ -33,15 +33,11 @@ export default function CustomSeparator(props) {
       >
         <NavLink to="/" activeStyle={linkStyle}>HOME</NavLink>
         <NavLink to="/" activeStyle={linkStyle}><span>{props.urlparams.category.toUpperCase()}</span></NavLink>
-        <NavLink
-        activeStyle={{textDecoration:"none"}}
+        <NavLink  
+        className={styles.bigblue}
           to={`/${props.urlparams.category}/${props.urlparams.subcategory}`}
         >
-          <Typography color="textPrimary">
-            <span>
             {props.urlparams.subcategory.toUpperCase()}
-            </span>
-          </Typography>
         </NavLink>
       </Breadcrumbs>
     </div>

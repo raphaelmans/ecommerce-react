@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function ItemsOnCart({ item }) {
     const classes = useStyles();
-  console.log(item.itemImage)
   return (
     <div style={{display:"flex",marginBottom:10}}>
       <Avatar

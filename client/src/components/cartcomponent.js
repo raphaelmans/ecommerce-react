@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ItemsOnCart from "./cartitems"
 import Button from "@material-ui/core/Button";
 import {GlobalContext} from "../context/globalstates";
-
+import {NavLink} from "react-router-dom"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +68,7 @@ export default function ShoppingCart() {
         }}
         transformOrigin={{
           vertical: "top",
-          horizontal: "left",
+          horizontal: "left", 
         }}
         onClose={handlePopoverClose}
         keepMounted
@@ -86,8 +86,10 @@ export default function ShoppingCart() {
         </div>
 
         <div style={{display:"flex",justifyContent:"space-between", marginTop:10}}>
-          <Button variant="contained" size="small">
-            View Cart
+          <Button variant="contained" size="small" >
+            <NavLink to="/viewcart" style={{textDecoration:"none", color:"black"}} activeStyle={{textDecoration:"none",color:"black"}}>
+                 View Cart
+            </NavLink>
           </Button>
           <Button variant="contained" size="small" color="primary">
             Checkout
