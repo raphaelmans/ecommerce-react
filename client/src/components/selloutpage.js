@@ -22,7 +22,7 @@ export default function SellOutPage({ match }) {
       var res = await axios.get(`http://localhost:8000/api/${site}`);
       return await res;
     }
-    apiCall().then(res=>setAPIRes(res.data));
+    apiCall().then(res=>setAPIRes(res.data)).catch(err=> console.log(err));
   }, [site]); 
   return (
     <React.Fragment>
