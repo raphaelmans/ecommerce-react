@@ -2,22 +2,14 @@ const express = require("express"),
   morgan = require("morgan"),
   app = express(),
   path = require("path"),
-  cors = require('cors');
+  cors = require('cors'),
+  mongoose = require("mongoose");
 
 const Product = require("./models/products"),
   Category = require("./models/category");
 
 const PORT = process.env.PORT || 8000;
-app.use(cors());
-var mongoose = require("mongoose");
 
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 const mongoAtlasURL = "mongodb+srv://belzbuu:cn1JHu4208@mernstack-xitaw.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
@@ -36,6 +28,7 @@ db.once('open', function() {
 
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cors());
 
 
 // Category.create({category:"chargers"});
