@@ -11,12 +11,20 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 var mongoose = require("mongoose");
 
-const mongoAtlasURL = "mongodb+srv://belzbuu:ko0pffughyu7@mernstack-xitaw.mongodb.net/ecommerce?retryWrites=true&w=majority"
+const mongoAtlasURL = "mongodb+srv://belzbuu:cn1JHu4208@mernstack-xitaw.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
 mongoose.connect(mongoAtlasURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Database connected");
+});
+
+
 
 app.use(morgan("tiny"));
 app.use(express.json());

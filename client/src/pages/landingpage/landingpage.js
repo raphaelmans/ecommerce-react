@@ -9,6 +9,7 @@ import Sepg from "../../components/selloutpage";
 import ShowItem from "../productdetails/showproductitem";
 import CreateItem from "../newitem/createnewitem";
 import CartPage from "../cartpage/cartpage"
+import Checkout from "../checkout/checkout"
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -69,6 +70,8 @@ export default function Blog() {
               <Route path="/:category/:subcategory/:id" component={ShowItem} />
               <Route path="/newitem" exact component={CreateItem} />
               <Route path="/viewcart" exact component={CartPage}/>
+              <Route path="/checkout" exact component={Checkout}/>
+              
             </Switch>
           </main>
         </Container>
