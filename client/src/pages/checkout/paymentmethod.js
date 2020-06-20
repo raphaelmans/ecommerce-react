@@ -33,7 +33,7 @@ export default function PaymentMethod({
   editForm,
 }) {
   const classes = useStyle();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState("same");
 
   const [checked, setChecked] = React.useState(false);
   const handleChange = (event) => {
@@ -140,7 +140,7 @@ export default function PaymentMethod({
           <RadioGroup
             aria-label="shippingmethod"
             name="shippingmethod"
-            value="same"
+            value={value}
             onChange={handleChange}
           >
             <FormControlLabel

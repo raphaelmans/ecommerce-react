@@ -63,6 +63,7 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
       <Grid container spacing={2}>
         <Grid item xs="10">
           <TextField
+          error
             variant="outlined"
             fullWidth
             placeholder="Address"
