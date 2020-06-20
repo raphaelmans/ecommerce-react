@@ -19,7 +19,8 @@ export default function SellOutPage({ match }) {
   var site = match.params.subcategory;
   useEffect(() => {
     async function apiCall() {
-      var res = await axios.get(`http://localhost:8000/api/${site}`);
+      // var res = await axios.get(`http://localhost:8000/api/${site}`);
+      var res = await axios.get(`http://ecommerce-mansueto.herokuapp.com/api/${site}`);
       return await res;
     }
     apiCall().then(res=>setAPIRes(res.data)).catch(err=> console.log(err));

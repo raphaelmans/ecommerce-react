@@ -15,12 +15,16 @@ const styles = makeStyles({
     height: "100%",
   },
 });
+
+// var res = await axios.get(`http://ecommerce-mansueto.herokuapp.com/api/${site}`);
+      // .get(`http://localhost:8000/api/${match.params.category}/${match.params.id}`)
+
 export default function ShowItem({ match }) {
   //TODO API CALL FOR DYNAMIC DATA
   const [apiData, setApiData] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/${match.params.category}/${match.params.id}`)
+      .get(`http://ecommerce-mansueto.herokuapp.com/api/${match.params.category}/${match.params.id}`)
       .then((res) => {
         console.log(res.data)
         setApiData(res.data);
