@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, Divider, Box, Grid } from '@material-ui/core'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import PaymentIcon from '@material-ui/icons/Payment';
 export default function CompleteOrder({subTotal,shippingMode,customerInfo,shippingAddress,payment,totalFee}) {
    
    
@@ -66,7 +67,9 @@ export default function CompleteOrder({subTotal,shippingMode,customerInfo,shippi
                             Payment Method
                         </Typography>
                         <Typography variant="body1">
-                          Ending in {payment.cvv} - ${totalFee}
+                            <span style={{display:"flex",alignItems:"center"}}>
+                         <PaymentIcon/> Ending in  {payment.cvv} - ${totalFee}
+                         </span>
                         </Typography>
                     </Grid>
                 </Grid>

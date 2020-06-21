@@ -49,7 +49,7 @@ export default function ShoppingCart() {
         onMouseEnter={handlePopoverOpen}
         onClick={handlePopoverOpen}
       >
-        <ShoppingCartIcon />
+        <ShoppingCartIcon /> <Typography variant="body1">Cart</Typography>
       </IconButton>
 
       <Popover

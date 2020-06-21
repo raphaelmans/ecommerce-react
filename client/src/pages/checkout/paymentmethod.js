@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-
+import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles({
@@ -95,8 +95,8 @@ export default function PaymentMethod({
           <Grid item xs="10">
             <Typography variant="h6">Payment Method</Typography>
           </Grid>
-          <Grid item xs="2">
-            LOGOS
+          <Grid container item xs="2" justify="flex-end" alignItems="center">
+            <CreditCardOutlinedIcon/>
           </Grid>
           <Grid item xs="12">
             {" "}
