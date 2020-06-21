@@ -60,8 +60,10 @@ export default function Checkout() {
     return (
 
         <Box mt={5}>
+          {steps < 4 ?
                       <CustomSeparator editForm={editForm} steps={steps}/>
-
+                      : 
+                      null}
         <Grid container>
             {/* ADD BREADCRUMB */}
             <Grid item xs={8}>

@@ -32,7 +32,7 @@ export default function CartPage() {
                 Subtotal
               </Grid>
               <Grid item xs="4">
-                ${subTotal.toFixed(2)}
+              ₱{subTotal.toFixed(2)}
               </Grid>
             </Grid>
             <Grid container>
@@ -60,7 +60,7 @@ export default function CartPage() {
               </Grid>
               {/* TODO: REPLACE WITH TOTAL COST INCLUDING SHIPPING FEE AND ETC */}
               <Grid item xs="4">
-                <Typography variant="h6">${subTotal.toFixed(2)}</Typography>
+                <Typography variant="h6">₱{subTotal.toFixed(2)}</Typography>
               </Grid>
               <Grid item xs="12">
                 <Link to="/checkout" className={NavStyle.checkoutstyle}>
