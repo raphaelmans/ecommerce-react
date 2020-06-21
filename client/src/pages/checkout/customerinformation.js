@@ -33,7 +33,6 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
         ctr++;
       }
     });
-    console.log(ctr);
     if(ctr === 7)
        nextstep();
     

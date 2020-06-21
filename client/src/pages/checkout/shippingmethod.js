@@ -29,7 +29,7 @@ export default function ShippingMethod({editForm,nextstep,prevstep,setShipMethod
                             {shippingCompany.map(elem=>(
                                     <div style={{display:"flex",justifyContent:"space-between",width:"100%",flexDirection:"row",alignItems:"center"}}>
                                         <FormControlLabel value={elem.companyName} control={<Radio color="primary" />} label={elem.companyName}/>
-                                        <Typography variant="body1" >${elem.fee}</Typography>
+                                        <Typography variant="body1" >₱{elem.fee}</Typography>
                                     </div>
                             ))}
                             </div>

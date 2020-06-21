@@ -29,7 +29,6 @@ export default function ProductDetails({productDetails}) {
 
 
 
-  console.log(typeof productDetails.itemDescription)
   const classes = useStyles();
   
   var editDescription = itemDetails.description.split(".");
@@ -38,7 +37,6 @@ export default function ProductDetails({productDetails}) {
     editDescription = productDetails.itemDescription.split(".");
   }
   const stars = productDetails.itemRating || 5;
-  console.log(stars)
   return (
     <div>
       <Typography variant="h5" gutterBottom>

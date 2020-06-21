@@ -8,15 +8,15 @@ import CustomSeparator from "./breadcrumbco"
 const shippingCompany = [
     {
       companyName: "Ninja Van",
-      fee: 2,
+      fee: 100,
     },
     {
       companyName: "FedEx",
-      fee: 3,
+      fee: 155,
     },
     {
       companyName: "UPS",
-      fee: 2.5,
+      fee: 200,
     },
   ];
 
@@ -81,11 +81,11 @@ export default function Checkout() {
                         
                         <Grid container>
                              <Grid item xs="8">Subtotal</Grid>
-    <Grid item xs="4">${subTotal.toFixed(2)}</Grid>
+    <Grid item xs="4">₱{subTotal.toFixed(2)}</Grid>
                         </Grid>
                         <Grid container>
                              <Grid item xs="8">Shipping</Grid>
-    <Grid item xs="4">${shippingFee[0].fee.toFixed(2)}</Grid>
+    <Grid item xs="4">₱{shippingFee[0].fee.toFixed(2)}</Grid>
                         </Grid>
                         
                         <Divider/>
@@ -100,7 +100,7 @@ export default function Checkout() {
                         <Grid container>
                              <Grid item xs="8"><Typography variant="h6">Total</Typography></Grid>
                              {/* TODO: REPLACE WITH TOTAL COST INCLUDING SHIPPING FEE AND ETC */}
-                             <Grid item xs="4"><Typography variant="h6">${totalFee.toFixed(2)}</Typography></Grid>
+                             <Grid item xs="4"><Typography variant="h6">₱{totalFee.toFixed(2)}</Typography></Grid>
                         </Grid>
                         </Box>
             </Grid>
