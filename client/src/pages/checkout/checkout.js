@@ -3,6 +3,7 @@ import { Divider, Grid,Typography,Box,Button, TextField } from '@material-ui/cor
 import { Link } from 'react-router-dom'
 import ShowForm from './showform'
 import {GlobalContext} from "../../context/globalstates"
+import CustomSeparator from "./breadcrumbco"
 
 const shippingCompany = [
     {
@@ -10,11 +11,11 @@ const shippingCompany = [
       fee: 2,
     },
     {
-      companyName: "LBC",
+      companyName: "FedEx",
       fee: 3,
     },
     {
-      companyName: "Shopee",
+      companyName: "UPS",
       fee: 2.5,
     },
   ];
@@ -24,6 +25,19 @@ export default function Checkout() {
 
 
     const { itemsOnCart } = useContext(GlobalContext);
+    
+    const [steps, setSteps] = useState(1);
+
+    const editForm = (moves) =>{
+      setSteps(moves);
+    }
+    const nextstep = () => {
+      setSteps(steps + 1);
+    };
+
+    const prevstep = () => {
+      setSteps(steps - 1);
+    };
     var subTotal = 0;
   
     for (var item of itemsOnCart) {
@@ -46,11 +60,19 @@ export default function Checkout() {
     return (
 
         <Box mt={5}>
+                      <CustomSeparator editForm={editForm} steps={steps}/>
+
         <Grid container>
             {/* ADD BREADCRUMB */}
             <Grid item xs={8}>
                 <Divider/>
-                <ShowForm subTotal={subTotal} totalFee={totalFee} shippingMode={shippingMode} setShipMethod={setShipMethod} />
+                <ShowForm subTotal={subTotal} totalFee={totalFee} shippingMode={shippingMode} setShipMethod={setShipMethod} 
+                  steps={steps}
+                  editForm={editForm}
+                  nextstep={nextstep}
+                  prevstep={prevstep}
+                  shippingCompany={shippingCompany}
+                />
             </Grid>
             <Grid item xs={4} container fullWidth>
                 {/* TODO ADD SUMMARY COMPONENT */}
@@ -65,10 +87,7 @@ export default function Checkout() {
                              <Grid item xs="8">Shipping</Grid>
     <Grid item xs="4">${shippingFee[0].fee.toFixed(2)}</Grid>
                         </Grid>
-                        <Grid container>
-                             <Grid item xs="8">Est. Taxes</Grid>
-                             <Grid item xs="4">-</Grid>
-                        </Grid>
+                        
                         <Divider/>
                         <Grid container direction="column" spacing={1}>
                            <Grid item xs={12} ><Typography variant="body1">Gift card or discount code</Typography></Grid>

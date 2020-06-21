@@ -30,7 +30,6 @@ export default function ShowItem({ match }) {
     axios
       .get(`http://ecommerce-mansueto.herokuapp.com/api/${match.params.category}/${match.params.id}`)
       .then((res) => {
-        console.log(res.data)
         setApiData(res.data);
       });
   }, []);

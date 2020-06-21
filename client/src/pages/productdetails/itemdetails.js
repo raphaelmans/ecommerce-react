@@ -53,7 +53,7 @@ export default function ProductDetails({productDetails}) {
         />
       </Box>
       <Typography className={classes.priceColor} variant="h5" gutterBottom>
-        ${productDetails.itemPrice ? (productDetails.itemPrice).toFixed(2) : "N/A"}
+       ₱{productDetails.itemPrice ? (productDetails.itemPrice).toFixed(2) : "N/A"}
    
       </Typography>
       <Divider className={classes.dividerStyles} />

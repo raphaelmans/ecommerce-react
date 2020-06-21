@@ -19,7 +19,7 @@ export default function ItemsOnCart({ item }) {
           Qty:1 | $20 */}
       {item.itemName}
       <br />
-      Qty:{item.itemQty} | ${item.itemPrice}
+      Qty:{item.itemQty} | ₱{item.itemPrice}
       <br />
     </div>
   );

@@ -5,31 +5,11 @@ import PaymentMethod from "./paymentmethod";
 import CompleteOrder from "./completeorder";
 
 
-const shippingCompany = [
-  {
-    companyName: "Ninja Van",
-    fee: 2,
-  },
-  {
-    companyName: "LBC",
-    fee: 3,
-  },
-  {
-    companyName: "Shopee",
-    fee: 2.5,
-  },
-];
 
-export default function ShowForm({totalFee,subTotal,shippingMode,setShipMethod}) {
+export default function ShowForm({shippingCompany,totalFee,subTotal,shippingMode,setShipMethod,editForm,nextstep,prevstep,steps}) {
 
  
 
-  const [steps, setSteps] = useState(1);
-  // const [shippingMode, setModeShip] = useState(shippingCompany[0].companyName);
-  // const setShipMethod = (event) => {
-  //   setModeShip(event.target.value);
-  // };
-  
   
   const [customerInfo, setCostumerInfo] = useState({
     email: "",
@@ -59,9 +39,7 @@ export default function ShowForm({totalFee,subTotal,shippingMode,setShipMethod})
     });
   };
 
-  const editForm = (moves) =>{
-    setSteps(moves);
-  }
+  
 
   const handleShippingAddress = (event) => {
     setShippingAddress({
@@ -85,14 +63,7 @@ export default function ShowForm({totalFee,subTotal,shippingMode,setShipMethod})
     });
   };
 
-  
-  const nextstep = () => {
-    setSteps(steps + 1);
-  };
-
-  const prevstep = () => {
-    setSteps(steps - 1);
-  };
+ 
   switch (steps) {
     case 1:
       return (

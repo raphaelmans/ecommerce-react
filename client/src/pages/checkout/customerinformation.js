@@ -7,7 +7,6 @@ import CountryBox from "../../components/countrybox";
 export default function CustomerInformation({nextstep,prevstep,handleCustomerInfo,customerInfo,shippingAddress,handleShippingAddress,handleCountryField}) {
 
   
-  console.log(shippingAddress.country);
   const [tag,setTag] = React.useState(0);
  
 
@@ -16,7 +15,6 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
   }
 
   const handleChangeShip = (e) =>{
-    console.log(e);
     handleShippingAddress(e);
   }
 
@@ -24,7 +22,6 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
 
   const checkFields = () =>{
     setTag(1)
-    console.log(tag);
     var ctr = 0; 
     Object.keys(customerInfo).forEach(item=>{
       if(customerInfo[item]){
@@ -32,12 +29,12 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
       }
     });
     Object.keys(shippingAddress).forEach(item=>{
-      if(shippingAddress[item]){
+      if(shippingAddress[item] && item != "apt"){
         ctr++;
       }
     });
     console.log(ctr);
-    if(ctr >= 7)
+    if(ctr === 7)
        nextstep();
     
      

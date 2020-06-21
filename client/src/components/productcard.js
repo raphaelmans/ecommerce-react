@@ -55,7 +55,7 @@ export default function MediaCard({ productDetails, urls }) {
               />
             </Box>
             <Typography variant="caption">
-              ${productDetails.itemPrice}
+             ₱{productDetails.itemPrice}
             </Typography>
           </CardContent>
         </CardActionArea>

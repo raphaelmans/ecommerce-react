@@ -42,7 +42,7 @@ export default function ItemViewCart({item}) {
         </div>
       </Grid>
       <Grid item xs="2">
-        ${item.itemPrice.toFixed(2)}
+       ₱{item.itemPrice.toFixed(2)}
       </Grid>
       <Grid item xs="2">
         <div style={{ display: "flex" }}>
