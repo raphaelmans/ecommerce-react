@@ -35,7 +35,7 @@ export default function ItemViewCart({item}) {
       <Grid item xs="8">
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
-            src="https://source.unsplash.com/random"
+            src={item.itemImage}
             style={{ height: 100 }}
           />
           <Box ml={2}>{item.itemName}</Box>

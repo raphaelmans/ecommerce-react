@@ -50,7 +50,7 @@ export default function Checkout() {
             {/* ADD BREADCRUMB */}
             <Grid item xs={8}>
                 <Divider/>
-                <ShowForm subTotal={subTotal} shippingMode={shippingMode} setShipMethod={setShipMethod} />
+                <ShowForm subTotal={subTotal} totalFee={totalFee} shippingMode={shippingMode} setShipMethod={setShipMethod} />
             </Grid>
             <Grid item xs={4} container fullWidth>
                 {/* TODO ADD SUMMARY COMPONENT */}

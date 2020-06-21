@@ -36,10 +36,25 @@ export default function PaymentMethod({
   const [value, setValue] = React.useState("same");
 
   const [checked, setChecked] = React.useState(false);
+ 
+  const [tag,setTag] = React.useState(0);
+
+  const checkFields = () =>{
+    setTag(1)
+    console.log(tag);
+    var ctr = 0; 
+    Object.keys(payment).forEach(item=>{
+      if(payment[item]){
+        ctr++;
+      }
+    });
+    if(ctr === 4)
+       nextstep();
+  }
+
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
   const handleCheckBox = (event) => {
     setChecked(event.target.checked);
   };
@@ -86,6 +101,7 @@ export default function PaymentMethod({
           <Grid item xs="12">
             {" "}
             <TextField
+              error = { tag === 1 && (payment.cardNumber  === undefined || payment.cardNumber.length < 1) ?  true :  false}
               variant="outlined"
               fullWidth
               placeholder="Card Number"
@@ -98,6 +114,7 @@ export default function PaymentMethod({
           <Grid item xs="6">
             {" "}
             <TextField
+            error = { tag === 1 && (payment.name  === undefined || payment.name.length < 1) ?  true :  false}
               variant="outlined"
               fullWidth
               placeholder="Name On Card"
@@ -109,6 +126,7 @@ export default function PaymentMethod({
           <Grid item xs="4">
             {" "}
             <TextField
+              error = { tag === 1 && (payment.cardDate  === undefined || payment.cardDate.length < 1) ?  true :  false}
               variant="outlined"
               fullWidth
               placeholder="MM/YY"
@@ -120,6 +138,7 @@ export default function PaymentMethod({
           <Grid item xs="2">
             {" "}
             <TextField
+              error = { tag === 1 && (payment.cvv  === undefined || payment.cvv.length < 1) ?  true :  false}
               variant="outlined"
               fullWidth
               placeholder="CVV"
@@ -194,7 +213,7 @@ export default function PaymentMethod({
           </div>
         
         </Link>
-        <Button variant="outlined" color="primary" onClick={nextstep}>
+        <Button variant="outlined" color="primary" onClick={checkFields}>
           Complete Order
         </Button>
       </div>

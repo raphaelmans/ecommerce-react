@@ -9,7 +9,7 @@ import {
 import Rating from "@material-ui/lab/Rating";
 import axios from "axios";
 
-const categories = ["electronics", "cables&adapters", "chargers", "bags&cases"];
+const categories = ["batteries","cameras", "cables&adapters", "chargers", "bags&cases","hotcategories","outerwear&jackets","weddings&events","bottoms","tops&sets","accessories","computer","jewelry&watches"];
 
 export default function CreateItem() {
   const [value, setValue] = useState(0);

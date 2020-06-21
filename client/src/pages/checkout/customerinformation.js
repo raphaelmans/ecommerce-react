@@ -2,17 +2,47 @@ import React from "react";
 import { Grid,Divider,TextField,Box,Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import CountryBox from "../../components/countrybox";
 
-export default function CustomerInformation({nextstep,prevstep,handleCustomerInfo,customerInfo,shippingAddress,handleShippingAddress}) {
+export default function CustomerInformation({nextstep,prevstep,handleCustomerInfo,customerInfo,shippingAddress,handleShippingAddress,handleCountryField}) {
 
   
+  console.log(shippingAddress.country);
+  const [tag,setTag] = React.useState(0);
+ 
+
   const handleChangeInfo = (e) =>{
     handleCustomerInfo(e);
   }
 
   const handleChangeShip = (e) =>{
+    console.log(e);
     handleShippingAddress(e);
   }
+
+
+
+  const checkFields = () =>{
+    setTag(1)
+    console.log(tag);
+    var ctr = 0; 
+    Object.keys(customerInfo).forEach(item=>{
+      if(customerInfo[item]){
+        ctr++;
+      }
+    });
+    Object.keys(shippingAddress).forEach(item=>{
+      if(shippingAddress[item]){
+        ctr++;
+      }
+    });
+    console.log(ctr);
+    if(ctr >= 7)
+       nextstep();
+    
+     
+  }
+
 
 
   return (
@@ -32,10 +62,13 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
       
       <Grid container spacing={2}>
         <Grid item xs="12">
-      <TextField variant="outlined" name="email" fullWidth placeholder="Email" onChange={handleChangeInfo} value={customerInfo.email} ></TextField>
+      <TextField 
+       error = { tag === 1 && (customerInfo.email  === undefined || customerInfo.email.length < 1) ?  true :  false}
+      variant="outlined" name="email" fullWidth placeholder="Email" onChange={handleChangeInfo} value={customerInfo.email} ></TextField>
         </Grid>
         <Grid item xs="6">
           <TextField
+            error = { tag === 1 && (customerInfo.firstName  === undefined || customerInfo.firstName.length < 1) ?  true :  false}
             variant="outlined"
             fullWidth
             placeholder="First Name"
@@ -45,6 +78,7 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
         </Grid>
         <Grid item xs="6">
           <TextField
+            error = { tag === 1 && (customerInfo.lastName  === undefined || customerInfo.lastName.length < 1) ?  true :  false}
             variant="outlined"
             fullWidth
             placeholder="Last Name"
@@ -63,7 +97,7 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
       <Grid container spacing={2}>
         <Grid item xs="10">
           <TextField
-          error
+           error = { tag === 1 && (shippingAddress.address  === undefined || shippingAddress.address.length < 1) ?  true :  false}
             variant="outlined"
             fullWidth
             placeholder="Address"
@@ -85,17 +119,20 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs="5">
-          <TextField
+          {/* <TextField
+            error = { tag === 1 && (shippingAddress.country  === undefined || shippingAddress.country.length < 1) ?  true :  false}
             variant="outlined"
             fullWidth
             placeholder="Country"
             name="country"
             onChange={handleChangeShip}
             value={shippingAddress.country}
-          ></TextField>
+          ></TextField> */}
+          <CountryBox handleCountryField={handleCountryField} value={shippingAddress.country}/>
         </Grid>
         <Grid item xs="5">
           <TextField
+            error = { tag === 1 && (shippingAddress.city  === undefined || shippingAddress.city.length < 1) ?  true :  false}
             variant="outlined"
             fullWidth
             placeholder="City"
@@ -105,7 +142,9 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
           ></TextField>
         </Grid>
         <Grid item xs="2">
-          <TextField variant="outlined" fullWidth placeholder="Zip" name="zip" value={shippingAddress.zip}
+          <TextField 
+           error = { tag === 1 && (shippingAddress.zip  === undefined || shippingAddress.zip.length < 1) ?  true :  false}
+          variant="outlined" fullWidth placeholder="Zip" name="zip" value={shippingAddress.zip}
             onChange={handleChangeShip}></TextField>
         </Grid>
       </Grid>
@@ -123,7 +162,7 @@ export default function CustomerInformation({nextstep,prevstep,handleCustomerInf
           Return to Cart
           </div>
         </Link>
-        <Button variant="outlined" color="primary" onClick={nextstep}>
+        <Button variant="outlined" color="primary" onClick={checkFields}>
           Continue to Shipping Method
         </Button>
       </div>

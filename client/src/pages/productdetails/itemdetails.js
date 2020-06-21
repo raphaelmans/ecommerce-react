@@ -29,7 +29,7 @@ export default function ProductDetails({productDetails}) {
 
 
 
-
+  console.log(typeof productDetails.itemDescription)
   const classes = useStyles();
   
   var editDescription = itemDetails.description.split(".");
@@ -57,20 +57,15 @@ export default function ProductDetails({productDetails}) {
    
       </Typography>
       <Divider className={classes.dividerStyles} />
-      <Typography
-        variant="body2"
-        className={classes.descriptionStyles}
-        gutterBottom
-      >
-        {editDescription.map((sentence) => {
-          if (sentence.length > 1)
-            return (
-              <span>
-                {sentence}.<br />
-              </span>
-            );
-        })}
-      </Typography>
+      <div style={{display:"flex",overflow:"auto",maxHeight:250}}>
+        <Typography
+          variant="body2"
+          className={classes.descriptionStyles}
+          gutterBottom
+        >
+        { productDetails.itemDescription && productDetails.itemDescription.length > 0 ? productDetails.itemDescription.split("\n").map((sentence)=>(<p>{sentence}</p>)) : productDetails.itemDescription}
+        </Typography>
+      </div>
       <Divider className={classes.dividerStyles} />
       <ActionElements productDetails={productDetails}></ActionElements>
     </div>

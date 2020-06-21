@@ -5,6 +5,7 @@ const express = require("express"),
   cors = require('cors'),
   mongoose = require("mongoose");
 
+
 const Product = require("./models/products"),
   Category = require("./models/category");
 
@@ -31,11 +32,18 @@ app.use(express.json());
 app.use(cors());
 
 
-// Category.create({category:"chargers"});
-
-
-
-
+// Category.create({category:"cables&adapters"});
+// Category.create({category:"batteries"});
+// Category.create({category:"cameras"});
+// Category.create({category:"bags&cases"});
+// Category.create({category:"hotcategories"});
+// Category.create({category:"outerwear&jackets"});
+// Category.create({category:"weddings&events"});
+// Category.create({category:"bottoms"});
+// Category.create({category:"tops&sets"});
+// Category.create({category:"accessories"});
+// Category.create({category:"computer"});
+// Category.create({category:"jewelry&watches"});
 app.use(express.static(path.join(__dirname,"../client/build")));
 
 
@@ -71,7 +79,7 @@ app.post("/api/newitem", (req, res) => {
               console.log(product);
               category.products.push(product);
               category.save();
-              
+              res.end();
             })
             .catch((err) => {
               console.log(err);

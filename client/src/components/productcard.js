@@ -13,11 +13,15 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     textAlign: "center",
-    textDecoration:"none"
+    textDecoration:"none",
+    height:450
   },
   media: {
     height: 300,
   },
+  itemName:{
+    wordWrap:"break-word"
+  }
 });
 
 export default function MediaCard({ productDetails, urls }) {
@@ -38,9 +42,11 @@ export default function MediaCard({ productDetails, urls }) {
             title={productDetails.itemName}
           />
           <CardContent className={classes.shit}>
+            <div style={{height:50,wordWrap: "break-word",wordBreak: "break-all"}}>
             <Typography gutterBottom variant="subtitle1">
-              {productDetails.itemName}
+              {productDetails.itemName.length > 60 ? productDetails.itemName.slice(0,60)+"..." : productDetails.itemName.replace("\n"," ")}
             </Typography>
+            </div>
             <Box component="fieldset" borderColor="transparent">
               <Rating
                 name="read-only"

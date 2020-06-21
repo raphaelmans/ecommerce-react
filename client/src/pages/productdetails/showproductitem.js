@@ -16,8 +16,12 @@ const styles = makeStyles({
   },
 });
 
-// var res = await axios.get(`http://ecommerce-mansueto.herokuapp.com/api/${site}`);
-      // .get(`http://localhost:8000/api/${match.params.category}/${match.params.id}`)
+
+//deployment request
+// .get(`http://ecommerce-mansueto.herokuapp.com/api/${match.params.category}/${match.params.id}`)
+
+//development request
+// .get(`http://localhost:8000/api/${match.params.category}/${match.params.id}`)
 
 export default function ShowItem({ match }) {
   //TODO API CALL FOR DYNAMIC DATA
@@ -42,7 +46,10 @@ export default function ShowItem({ match }) {
               backgroundImage:
                 `url("${apiData.itemImage}")`,
                 backgroundRepeat:"no-repeat",
-              height: "70vh",
+                height: "100%",
+                backgroundPosition: "center",
+                backgroundRepeat:"no-repeat",
+                backgroundSize: "cover",
             }}
           ></div>
         </Grid>

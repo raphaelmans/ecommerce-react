@@ -20,7 +20,7 @@ const shippingCompany = [
   },
 ];
 
-export default function ShowForm({subTotal,shippingMode,setShipMethod}) {
+export default function ShowForm({totalFee,subTotal,shippingMode,setShipMethod}) {
 
  
 
@@ -70,6 +70,14 @@ export default function ShowForm({subTotal,shippingMode,setShipMethod}) {
     });
   };
 
+  
+  const handleCountryField = (value) =>{
+    setShippingAddress({
+      ...shippingAddress,
+      country: value,
+    });
+  }
+
   const handleCustomerInfo = (event) => {
     setCostumerInfo({
       ...customerInfo,
@@ -95,6 +103,7 @@ export default function ShowForm({subTotal,shippingMode,setShipMethod}) {
           customerInfo={customerInfo}
           handleShippingAddress={handleShippingAddress}
           shippingAddress={shippingAddress}
+          handleCountryField={handleCountryField}
         />
       );
     case 2:
@@ -122,6 +131,7 @@ export default function ShowForm({subTotal,shippingMode,setShipMethod}) {
       shippingAddress={shippingAddress}
       payment={payment}
       subTotal={subTotal}
+      totalFee={totalFee}
       />;
     default:
       return <CustomerInformation nextstep={nextstep} prevstep={prevstep}  />;
