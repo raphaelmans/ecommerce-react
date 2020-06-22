@@ -32,7 +32,10 @@ export default function CustomSeparator(props) {
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
       >
-      
+                      <Link  color="inherit">
+                        <Typography variant="caption">Checkout</Typography>
+                            
+                      </Link>
                       <Link color="inherit" component="button" onClick={()=> props.editForm(1)}>
                                         Customer Information
                                 </Link>

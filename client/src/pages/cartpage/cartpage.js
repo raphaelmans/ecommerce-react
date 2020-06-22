@@ -42,18 +42,11 @@ export default function CartPage() {
               <Grid item xs="4">
                 -
               </Grid>
-            </Grid>
-            <Grid container>
-              <Grid item xs="8">
-                Est. Taxes
-              </Grid>
-              <Grid item xs="4">
-                -
-              </Grid>
               <Grid item xs="12">
                 <Divider />
               </Grid>
             </Grid>
+      
             <Grid container>
               <Grid item xs="8">
                 <Typography variant="h6">Total</Typography>
